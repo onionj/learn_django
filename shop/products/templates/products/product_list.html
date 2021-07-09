@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product list</title>
+</head>
+<body>
+    <h1>this is product list page</h1>
+    <hr>
+    {{ qr }}
+    <hr>
+    {{ object_list }}
+    <hr>
+    {% for obj in object_list %}
+    <p>
+    {{ obj.title }} <br> {{ obj.price }} <br> {{ obj.description }}
+    </p>
+    {% endfor %}
+</body>
+</html>
