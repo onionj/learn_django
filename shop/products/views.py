@@ -30,10 +30,9 @@ class ProductDetailView(DetailView):
     queryset = Product.objects.all()
     template_name = "products/product_detail.html"
 
-    def get_context_data(self, *args, object_list=None, **kwargs):
+    def get_context_data(self, object_list=None, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(
             *args, **kwargs)
-        context['abc'] = "this is my test data in context"
         print(context)
         return context
 
