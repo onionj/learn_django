@@ -16,11 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home_page, about_page, contact_page, login_page, register_page
-from products.views import product_list_views, ProductListView
+from products.views import product_list_view, ProductListView, product_detail_view, ProductDetailView
 
 from django.conf import settings
 from django.conf.urls.static import static
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,11 +27,13 @@ urlpatterns = [
     path('about-us', about_page),
     path('contact-us', contact_page),
     path('login', login_page),
-    path('products', ProductListView.as_view()),
-    path('products-fbv', product_list_views),
     path('register', register_page),
-
+    path('products', ProductListView.as_view()),
+    path('products-fbv', product_list_view),
+    path('products/<pk>', ProductDetailView.as_view()),
+    path('products-fbv/<productId>', product_detail_view),
 ]
+
 if settings.DEBUG:
     # add root static files
     urlpatterns = urlpatterns + \
